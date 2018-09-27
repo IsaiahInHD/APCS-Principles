@@ -7,10 +7,8 @@
 function Ball(location, velocity, radius, col){
   // Instance variables
   this.loc = location;
-  this.vel = velocity;
   this.rad = radius;
   this.col = col;
-  this.acc = createVector(.1, 0);
   // This function calls other functions
   this.run = function(){
     this.checkEdges();
@@ -43,14 +41,7 @@ function Ball(location, velocity, radius, col){
     this.loc.add(this.vel);
 
   }
-
-  //checkEdges() reverses speed when the ball touches an edge
-  this.checkEdges = function(){
-    if(this.loc.x < 0) this.loc.x = width;
-    if(this.loc.x > width) this.loc.x = 0;
-    if(this.loc.y < 0) this.loc.y = height;
-    if(this.loc.y > height) this.loc.y = 0;
-
+  
   }
 
   // render() draws the ball at the new location
