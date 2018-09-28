@@ -15,14 +15,15 @@ function Ball(location, velocity, radius, col){
     this.update();
     this.render();
   }
-  //This function changes the location of the Ball
-  // by adding speed to x and y
+
+//lerp the chaser to the mouse
+
   this.update = function(){
-    var mouseLoc = createVector(mouseX, mouseY);
-    this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
-
-
-      }
+    lerp(start, stop, amt)
+      var mouseLoc = createVector(mouseX, mouseY);
+      this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09)
+      x = lerp(x, mouseX, 0.09);
+      y = lerp(y, mouseY, 0.09);
 
 
     }
@@ -31,12 +32,12 @@ function Ball(location, velocity, radius, col){
 
   }
 
-  }
+  //checkEdges() reverses speed when the ball touches an edge
+
+
 
   // render() draws the ball at the new location
   this.render = function(){
     fill(this.col);
     ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
   }
-
-}

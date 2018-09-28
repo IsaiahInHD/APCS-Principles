@@ -28,7 +28,7 @@ function draw() {
 
 
 
-function loadBoids(){
+function loadBoids(50) {
   for(var i = 50; i < numBoids; i++){
     var loc = createVector(random(width), random(height));
     var vel = createVector(random(-3, 3), random(-3, 3));
