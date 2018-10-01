@@ -11,7 +11,7 @@ function Ball(location, velocity, radius, col){
   this.col = col;
   // This function calls other functions
   this.run = function(){
-    this.checkEdges();
+    //this.checkEdges();
     this.update();
     this.render();
   }
@@ -19,25 +19,17 @@ function Ball(location, velocity, radius, col){
 //lerp the chaser to the mouse
 
   this.update = function(){
-    lerp(start, stop, amt)
+    //lerp(start, stop, amt)
       var mouseLoc = createVector(mouseX, mouseY);
       this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09)
-      x = lerp(x, mouseX, 0.09);
-      y = lerp(y, mouseY, 0.09);
-
 
     }
-    this.vel.limit(5);
-    this.loc.add(this.vel);
 
+    // render() draws the ball at the new location
+    this.render = function(){
+      fill(this.col);
+      ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+    }
   }
 
   //checkEdges() reverses speed when the ball touches an edge
-
-
-
-  // render() draws the ball at the new location
-  this.render = function(){
-    fill(this.col);
-    ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
-  }

@@ -6,10 +6,10 @@
 
 function Boid(location, velocity, radius, col){
   // Instance variables
-  this.loc = location;
-  this.vel = velocity;
-  this.rad = radius;
-  this.col = col;
+  this.loc = location;//  vector
+  this.vel = velocity;//  vector
+  this.rad = radius;// number
+  this.col = col; // color
   this.acc = createVector(.1, 0);
   // This function calls other functions
   this.run = function(){
@@ -20,8 +20,7 @@ function Boid(location, velocity, radius, col){
   //This function changes the location of the Ball
   // by adding speed to x and y
   this.update = function(){
-
-
+    //  accelerate away from the chaser
 
 
     }
