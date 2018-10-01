@@ -10,7 +10,7 @@ function Boid(location, velocity, radius, col){
   this.vel = velocity;//  vector
   this.rad = radius;// number
   this.col = col; // color
-  this.acc = createVector(.1, 0);
+  this.acc = createVector(0);
   // This function calls other functions
   this.run = function(){
     this.checkEdges();
@@ -21,20 +21,18 @@ function Boid(location, velocity, radius, col){
   // by adding speed to x and y
   this.update = function(){
     //  accelerate away from the chaser
-
-
-    }
-    this.vel.add(this.acc)
+    this.acc.add(this.vel)
     this.loc.add(this.vel);
 
-  }
+    }
 
-  //checkEdges() reverses speed when the ball touches an edge
-  this.checkEdges = function(){
-    if(this.loc.x < 0) this.loc.x = width;
-    if(this.loc.x > width) this.loc.x = 0;
-    if(this.loc.y < 0) this.loc.y = height;
-    if(this.loc.y > height) this.loc.y = 0;
+
+    //checkEdges() reverses speed when the ball touches an edge
+    this.checkEdges = function(){
+      if(this.loc.x < 0) this.loc.x = width;
+      if(this.loc.x > width) this.loc.x = 0;
+      if(this.loc.y < 0) this.loc.y = height;
+      if(this.loc.y > height) this.loc.y = 0;
 
   }
 
@@ -45,4 +43,6 @@ function Boid(location, velocity, radius, col){
     rotate(0);
     triangle(-5, 0, 5, 0, 0, -15);
   pop()
+  }
+
   }
