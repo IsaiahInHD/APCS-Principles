@@ -4,12 +4,12 @@
 **Aug 30, 2018
 */
 
-function Boid(location, velocity, radius, col){
+function Boid(location, velocity, radius, clr){
   // Instance variables
   this.loc = location;//  vector
   this.vel = velocity;//  vector
   this.rad = radius;// number
-  this.col = col; // color
+  this.clr = clr; // clror
   this.acc = createVector(0);
   // This function calls other functions
   this.run = function(){
@@ -38,10 +38,12 @@ function Boid(location, velocity, radius, col){
 
   // render() draws the ball at the new location
   this.render = function(){
+    fill(this.clr);
+    var n = 10;
   push()
     translate(this.loc.x, this.loc.y);
-    rotate(0);
-    triangle(-5, 0, 5, 0, 0, -15);
+    rotate(this.vel.heading()+PI/2);
+    triangle(-n, 0, n, 0, 0, -3*n);
   pop()
   }
 
