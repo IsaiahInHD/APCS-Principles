@@ -11,18 +11,22 @@ function Boid(location, velocity, radius, clr){
   this.rad = radius;// number
   this.clr = clr; // clror
   this.acc = createVector(0);
+  this.lifespan = 800.0;
+
   // This function calls other functions
   this.run = function(){
     this.checkEdges();
     this.update();
     this.render();
   }
+
   //This function changes the location of the Ball
   // by adding speed to x and y
   this.update = function(){
     //  accelerate away from the chaser
     this.acc.add(this.vel)
     this.loc.add(this.vel);
+
 
     }
 
@@ -46,5 +50,14 @@ function Boid(location, velocity, radius, clr){
     triangle(-n, 0, n, 0, 0, -3*n);
   pop()
   }
+
+  this.isDead = function() {
+    if(this.lifespan < 0.0) {
+      return true;
+    }  else {
+       return false;
+    }
+  }
+
 
   }
