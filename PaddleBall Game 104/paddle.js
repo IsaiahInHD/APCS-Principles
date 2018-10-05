@@ -23,10 +23,10 @@ function Paddle(location, velocity, radius, col) {
     }
 
 
-    //render will draw the ball at a new location
+    //render will draw the paddle at a new location
     this.render = function(){
       fill(this.col);
-      rect(this.loc.x, this.loc.y, this.rad, this.rad);
+      rect(30, 20, 55, 55);
     }
 
 
