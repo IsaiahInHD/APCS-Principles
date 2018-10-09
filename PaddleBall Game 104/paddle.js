@@ -19,13 +19,13 @@ function Paddle(location, velocity, radius, col) {
     //lerp the paddle to the mouse
     this.update = function(){
       var mouseLoc = createVector(mouseX, mouseY);
-      this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09)
+      this.loc = p5.Vector.lerp(this.loc, mouseLoc, .09);
     }
 
 
     //render will draw the paddle at a new location
     this.render = function(){
-      fill(this.col);
+      fill(this.clr);
       rect(30, 20, 55, 55);
     }
 

@@ -3,7 +3,7 @@
 
 function Ball(location, velocity, radius, clr){
   //ball instance variables, each individual
-  //ball object will have this code in setInterval(function () {
+  //ball object will have this code in it
   this.loc = location; //this is a Vector
   this.vel = velocity; // this is also a Vector
   this.rad = radius; //this is a number, or value
@@ -23,8 +23,8 @@ function Ball(location, velocity, radius, clr){
       this.update = function(){
         this.loc.x = this.loc.x + this.vel.x;
         this.loc.y = this.loc.y + this.vel.y;
-        this.vel.add(this.acc);
-        this.loc.add(this.vel);
+        this.acc.add(this.vel);
+        this.loc.add(this.vel)
 
       }
 
