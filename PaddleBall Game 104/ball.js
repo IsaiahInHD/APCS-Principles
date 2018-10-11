@@ -1,17 +1,17 @@
 //ball constructor function
 // declare ball objects
 
-function Ball(location, velocity, radius, clr){
+function Ball(loc, vel, clr, acc)  {
   //ball instance variables, each individual
   //ball object will have this code in it
-  this.loc = location; //this is a Vector
-  this.vel = velocity; // this is also a Vector
-  this.rad = radius; //this is a number, or value
+  this.loc = loc; //this is a Vector
+  this.vel = vel; // this is also a Vector
   this.clr = clr; // a thing, color needs to be defined
+  radius = 10;
   this.acc = createVector(.1, .1) // adding acceleration
 
   // calling other functions
-  this.run = function(){
+  this.run = function() {
       this.checkEdges();
       this.update();
       this.render();
@@ -20,10 +20,10 @@ function Ball(location, velocity, radius, clr){
 
     // chainging the location of the ball
     // by adding speed to x and y
-      this.update = function(){
+      this.update = function() {
         this.loc.x = this.loc.x + this.vel.x;
         this.loc.y = this.loc.y + this.vel.y;
-        this.acc.add(this.vel);
+        this.vel.add(this.acc);
         this.loc.add(this.vel)
 
       }
@@ -31,6 +31,7 @@ function Ball(location, velocity, radius, clr){
 
       //checkEdges() reverses speed when the ball touches an edge
       this.checkEdges = function(){
+
         if(this.loc.x < 0) this.vel.x = -this.vel.x;
         if(this.loc.x > width) this.vel.x = -this.vel.x;
         if(this.loc.x < 0) this.vel.y = -this.vel.y;
@@ -40,10 +41,45 @@ function Ball(location, velocity, radius, clr){
       // render() draws the ball at a new location
     this.render = function(){
       fill(this.clr);
-      ellipse(this.loc.x, this.loc.y, this.rad, this.rad);
+      push()
+        ellipse(this.loc.x, this.loc.y, radius, radius);
+      pop()
+    }
+
     }
 
 
 
+      //paddle function
+    function Paddle(loc, vel, clr2) {
+      //instance variables
+      this.loc = loc;
+      this.vel = vel;
+      this.clr2 = clr2;
+      this.acc = createVector(0, 0.1);
 
-}
+      //calls the other functions
+      this.run = function() {
+        this.update();
+        this.render();
+      }
+
+
+      //update function will update the loc/vel of the paddle and ball
+      this.update = function(){
+        //lets the paddle move w/ the mouse
+        this.loc.x = mouseX;
+      }
+
+      //gives object a shape and color
+      this.render = function(){
+        fill(this.clr2);
+        push()
+          rect(this.loc.x, windowHeight - 240, 100, 10);
+        pop()
+      }
+
+
+
+
+    }

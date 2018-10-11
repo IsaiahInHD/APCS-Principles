@@ -1,49 +1,63 @@
 // Global variables
-var balls = []
-var paddle = []
+let balls = [];
+let paddle = [];
 // put setup code here
 function setup() {
+  noCursor();
   var cnv = createCanvas(1600,900);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
-  loadBalls(150); // !!!!!!!! this is a function call
+  fill(200, 30, 150);
+
+  
+  let n = 50;
+  loadBalls(n); // !!!!!!!! this is a function call
   loadPaddle(1); // function call
-  //defining the paddle object, giving it a shape
-  paddle = new Rect(createVector(20, 30), createVector(20, 30), 40, color(255,0,0));
+
 }
 
 function draw() {
   background(20, 20, 20, 15);
   // calling the run function, checking how many balls were made
-  for(var i = 0; i < balls.length; i++){
+  for(let i = 0; i < balls.length; i++){
     balls[i].run();
   }
 
-  for(var i = 0; i < paddle.length; i++){
+  for(let i = 0; i < paddle.length; i++){
     paddle[i].run();
+  }
+
+  checkCollision();
+
+}
+
+function checkCollision(paddle, balls) {
+  for(let Ball in balls) {
   }
 
 }
 
+
+
 //array of balls, not boids
 function loadBalls(numBalls) {
-  for(var i = 0; i < numBalls; i++){
-    var loc = createVector(random(width), random(height));
-    var vel = createVector(random(-3, 3), random(-3, 3));
-    var rad = random(20, 40);
-    var col = color(random(255), random(255), random(255));
-    var b = new Ball(loc, vel, clr);
+  for(let i = 0; i < numBalls; i++){
+    loc = createVector(random(width), random(300, 0));
+    vel = createVector(random(-3, 3), random(-3, 3));
+    clr = color(random(0, 255), random(0, 255), random(0, 255));
+    let b = new Ball(loc, vel, clr);
     balls.push(b);
   }
 
   function loadPaddle(numPaddle) {
-    for(var i = 0; i < numPaddle; i++){
-      var loc = createVector(random(width), random(height));
-      var vel = createVector(random(-3, 3), random(-3, 3));
-      var rad = random(20, 40);
-      var col = color(random(255), random(255), random(255));
-      var b = new Paddle(loc, vel, clr);
-      paddle.push(b);
+    for(let i = 0; i < 1; i++){
+      let loc = createVector(random(width), random(height));
+      let vel = createVector(random(-3, 3), random(-3, 3));
+      let clr2 = color(random(255), random(255), random(255));
+      let ba = new Paddle(loc, vel, clr);
+      paddle.push(ba);
     }
+
+  }
 
 }
