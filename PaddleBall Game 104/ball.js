@@ -8,7 +8,7 @@ function Ball(loc, vel, clr, acc)  {
   this.vel = vel; // this is also a Vector
   this.clr = clr; // a thing, color needs to be defined
   radius = 10;
-  this.acc = createVector(.1, .1) // adding acceleration
+  this.acc = createVector(0, .1) // adding acceleration
 
   // calling other functions
   this.run = function() {
@@ -31,7 +31,6 @@ function Ball(loc, vel, clr, acc)  {
 
       //checkEdges() reverses speed when the ball touches an edge
       this.checkEdges = function(){
-
         if(this.loc.x < 0) this.vel.x = -this.vel.x;
         if(this.loc.x > width) this.vel.x = -this.vel.x;
         if(this.loc.x < 0) this.vel.y = -this.vel.y;
@@ -55,7 +54,7 @@ function Ball(loc, vel, clr, acc)  {
       //instance variables
       this.loc = loc;
       this.vel = vel;
-      this.clr2 = clr2;
+      this.clr2 = clr2; //specifically for paddle
       this.acc = createVector(0, 0.1);
 
       //calls the other functions

@@ -6,10 +6,10 @@ function setup() {
   noCursor();
   var cnv = createCanvas(1600,900);
   cnv.position((windowWidth-width)/2, 30);
-  background(20, 20, 20);
+  background(5, 5, 5);
   fill(200, 30, 150);
 
-  
+
   let n = 50;
   loadBalls(n); // !!!!!!!! this is a function call
   loadPaddle(1); // function call
@@ -17,14 +17,14 @@ function setup() {
 }
 
 function draw() {
-  background(20, 20, 20, 15);
+  background(5, 5, 5);
   // calling the run function, checking how many balls were made
-  for(let i = 0; i < balls.length; i++){
-    balls[i].run();
-  }
-
   for(let i = 0; i < paddle.length; i++){
     paddle[i].run();
+  }
+
+  for(let i = 0; i < balls.length; i++){
+    balls[i].run();
   }
 
   checkCollision();
@@ -49,6 +49,8 @@ function loadBalls(numBalls) {
     balls.push(b);
   }
 
+}
+
   function loadPaddle(numPaddle) {
     for(let i = 0; i < 1; i++){
       let loc = createVector(random(width), random(height));
@@ -59,5 +61,3 @@ function loadBalls(numBalls) {
     }
 
   }
-
-}
