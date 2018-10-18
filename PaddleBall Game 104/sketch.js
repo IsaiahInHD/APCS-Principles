@@ -27,6 +27,17 @@ function draw() {
     balls[i].run();
   }
 
+
+  for(var i = 0; i < balls.length; i++){
+    if(balls[i].isColliding()){
+      balls.splice(i, 1);
+    }
+  }
+
+
+
+
+
   checkCollision();
 
 }
