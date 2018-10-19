@@ -31,8 +31,9 @@ function draw() {
   for(var i = 0; i < balls.length; i++){
     if(balls[i].isColliding()){
       balls.splice(i, 1);
-    }
   }
+
+}
 
 
 

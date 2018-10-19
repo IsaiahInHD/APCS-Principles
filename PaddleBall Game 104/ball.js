@@ -32,7 +32,7 @@ function Ball(loc, vel, clr, acc, w, h)  {
       }
 
         this.isColliding() = function {
-          if(this.loc.x < w)
+           if(this.loc.x < w) paddle.loc.x + paddle.loc.h
 
         }
 
