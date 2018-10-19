@@ -30,22 +30,12 @@ function draw() {
 
   for(var i = 0; i < balls.length; i++){
     if(balls[i].isColliding()){
-      balls.splice(i, 1);
+      balls[i].isDead = true;
+    }
+
   }
 
-}
 
-
-
-
-
-  checkCollision();
-
-}
-
-function checkCollision(paddle, balls) {
-  for(let Ball in balls) {
-  }
 
 }
 
@@ -63,13 +53,13 @@ function loadBalls(numBalls) {
 
 }
 
-  function loadPaddle(numPaddle) {
-    for(let i = 0; i < 1; i++){
-      let loc = createVector(random(width), random(height));
-      let vel = createVector(random(-3, 3), random(-3, 3));
-      let clr2 = color(random(255), random(255), random(255));
-      let ba = new Paddle(loc, vel, clr);
-      paddle.push(ba);
-    }
-
+function loadPaddle(numPaddle) {
+  for(let i = 0; i < 1; i++){
+    let loc = createVector(random(width), random(height));
+    let vel = createVector(random(-3, 3), random(-3, 3));
+    let clr2 = color(random(255), random(255), random(255));
+    let ba = new Paddle(loc, vel, clr);
+    paddle.push(ba);
   }
+
+}

@@ -10,8 +10,6 @@ function Ball(loc, vel, clr, acc, w, h)  {
   radius = 10;
   this.acc = createVector(0, .1) // adding acceleration
   this.isDead = false;
-  this.w = 100;
-  this.h = 50;
 
   // calling other functions
   this.run = function() {
@@ -31,8 +29,15 @@ function Ball(loc, vel, clr, acc, w, h)  {
 
       }
 
-        this.isColliding() = function {
-           if(this.loc.x < w) paddle.loc.x + paddle.loc.h
+        this.isColliding = function() {
+           if((this.loc.x > paddle.loc.x) && (this.loc.x < paddle.loc.x + paddle.w)
+           && (this.loc.y > paddle.loc.y) && (this.loc.y < paddle.loc.y + paddle.h))  {
+             return true;
+            //if((this.loc.y > paddle.loc.y) && (this.loc.y < paddle.loc.y + paddle.h))
+
+
+            }
+
 
         }
 
@@ -56,46 +61,6 @@ function Ball(loc, vel, clr, acc, w, h)  {
         pop()
       }
 
-
-
-  }
-
-
-      //paddle function
-    function Paddle(loc, vel, clr2) {
-      //instance variables
-      this.loc = loc;
-      this.vel = vel;
-      this.clr2 = clr2; //specifically for paddle
-      this.acc = createVector(0, 0.1);
-
-      //calls the other functions
-      this.run = function() {
-        this.update();
-        this.render();
-
-        for(let i = balls.length-1; i>=0; i--){
-          if(balls[i].isDead){
-            balls.splice(i, i);
-            }
-        }
-      }
-
-
-
-      //update function will update the loc/vel of the paddle and ball
-      this.update = function(){
-        //lets the paddle move w/ the mouse horizontally
-        this.loc.x = mouseX;
-      }
-
-      //gives object a shape and color
-      this.render = function(){
-        fill(this.clr2);
-        push()
-          rect(this.loc.x, windowHeight - 240, 100, 10);
-        pop()
-    }
 
 
   }
