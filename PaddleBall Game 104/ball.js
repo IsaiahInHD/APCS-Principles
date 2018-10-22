@@ -30,10 +30,8 @@ function Ball(loc, vel, clr, acc, w, h)  {
       }
 
         this.isColliding = function() {
-           if((this.loc.x > paddle.loc.x) && (this.loc.x < paddle.loc.x + paddle.w)
-           && (this.loc.y > paddle.loc.y) && (this.loc.y < paddle.loc.y + paddle.h))  {
-             return true;
-            //if((this.loc.y > paddle.loc.y) && (this.loc.y < paddle.loc.y + paddle.h))
+           if(this.loc.x > paddle.loc.x &&
+           this.loc.x < paddle.loc.x + w)
 
 
             }
