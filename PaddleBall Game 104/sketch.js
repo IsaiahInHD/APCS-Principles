@@ -19,16 +19,17 @@ function setup() {
 function draw() {
   background(5, 5, 5);
   // calling the run function, checking how many balls were made
-
-    paddle.run();
+  for(let i = 0; i < paddle.length; i++){
+    paddle[i].run();
   }
 
   for(let i = 0; i < balls.length; i++){
     balls[i].run();
   }
 
-  for(let i = balls.length - 1; i>= 0; i--){
-    if(balls[i].colliding()){
+
+  for(let i = balls.length - 1; i >= 0; i--){
+    if(balls[i].isColliding()){
 
       if(balls[i].vel.y < 0){
         n = n + 10
@@ -38,26 +39,16 @@ function draw() {
         w = w + 5;
         if(balls.length === 0){
           n = n + 10
-          loadBalls(n)
+          loadBalls(n);
         }
       }
     }
+    
   }
 
 
 
-
-      }
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
