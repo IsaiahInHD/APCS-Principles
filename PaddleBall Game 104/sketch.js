@@ -29,7 +29,7 @@ function draw() {
 
 
   for(let i = balls.length - 1; i >= 0; i--){
-    if(balls[i].isColliding()){
+    if(balls[i].colliding()){
 
       if(balls[i].vel.y < 0){
         n = n + 10
@@ -43,7 +43,7 @@ function draw() {
         }
       }
     }
-    
+
   }
 
 
