@@ -7,35 +7,23 @@ function preload(){
 
 function setup(){
 
-  procedure bubbleSort( A : list of sortable items )
-    n = length(A)
-    repeat
-        swapped = false
-        for i = 1 to n-1 inclusive do
-            /* if this pair is out of order */
-            if A[i-1] > A[i] then
-                /* swap them and remember something changed */
-                swap( A[i-1], A[i] )
-                swapped = true
-            end if
-        end for
-    until not swapped
-end procedure
+  noCanvas();
+  myBubbleSort(txt);
 
 }
 
-function bubbleSort() {
-  for(var i = nums.length - 1; i >= 1; i--){
-    for(var j = 0; j < nums.length; j++)
+
+function myBubbleSort(txt) {
+  console.log(txt)
+  var length = txt.length
+  for(var i = 0; i < length; i++){
+    for(var j = 0; j < (length - i - 1); j++){
+      if(txt[j] > txt[j+1]){
+        var tmp = txt[j];
+        txt[j] = txt[j+1];
+        txt[j+1] = tmp;
+      }
+    }
   }
-
-
-}
-
-
-function swap(nums, a, b) {
-  var temp = nums[a];
-  nums[a] = nums[b];
-  nums[b] = temp
 
 }
