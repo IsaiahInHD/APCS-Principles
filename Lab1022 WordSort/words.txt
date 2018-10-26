@@ -1,6 +1,6 @@
+Zebra
 Dog
-Rat
-Cat
-Bat
 Pig
 Owl
+Hawk
+Wildcat
