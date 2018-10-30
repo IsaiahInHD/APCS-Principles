@@ -1,15 +1,14 @@
 // Global variables
 var bars = [];
-var numBars;
+
 
 function setup(){
   var cnv = createCanvas(1600, 900);
-  cnv.position((windowWidth-width)/2, 30);
+  cnv.position(-(windowWidth-width)/2, 30);
   background(20, 20, 20);
-  loadBars(1); //function call
-  myBubbleSort(colorbar);
-  mySelectSort(colorbar);
-
+  loadBars(100); //function call
+  myBubbleSort();
+  //mySelectSort();
 }
 
 
@@ -26,24 +25,30 @@ function draw(){
 //array of bars
 function loadBars(numBars) {
   for(var i = 0; i < numBars; i++){
-    var loc = createVector(random(width), random(height));
+
+    var loc = createVector(-(windowWidth-width)/2, -(windowWidth-width)/2, 0);
     var rad = random(20, 40);
     var col = color(random(255), random(255), random(255));
-    bars.push(new Colorbar(loc, rad, col, width, height));
+    bars.push(new Colorbar(loc, rad, col));
   }
 }
 
 
-function myBubbleSort(colorbar){
-  var length = colorbar.length
+function myBubbleSort(){
+  var length = bars.length
   for(var i = length-1; i > 0; i--){
     for(var j = 0; j < i; j++){
-      if(colorbar[j] > colorbar[j+1]){
-        var tmp = colorbar[j];
-        colorbar[j] = colorbar[j+1];
-        colorbar[j+1] = tmp;
+      if(bars[j] > bars[j+1]){
+        var tmp = bars[j];
+        bars[j] = bars[j+1];
+        bars[j+1] = tmp;
       }
     }
+  }
+
+
+  function mySelectSort(){
+
   }
 
 

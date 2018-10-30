@@ -16,6 +16,7 @@ function Colorbar(location, radius, col){
 
   this.render = function(){
     fill(this.col);
+    rect(20, 30, 40, 60);
 
   }
 
