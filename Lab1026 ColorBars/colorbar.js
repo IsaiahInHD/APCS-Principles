@@ -1,27 +1,13 @@
-function Colorbar(location, radius, col){
+function Colorbar(location, col){
   //instance variables
   this.loc = location;
-  this.rad = radius;
   this.col = col;
   this.w = 150;
   this.h = 200;
 
 
-  //calls other functions
-  this.run = function(){
-    this.render();
-  }
-
-
-
   this.render = function(){
     fill(this.col);
-    rect(20, 30, 40, 60);
-
+    rect(this.loc.x, this.loc.y, 40, 60);
   }
-
-
-
-
-
 }

@@ -6,7 +6,7 @@ function setup(){
   var cnv = createCanvas(1600, 900);
   cnv.position(-(windowWidth-width)/2, 30);
   background(20, 20, 20);
-  loadBars(100); //function call
+  loadBars(200); //function call
   myBubbleSort();
   //mySelectSort();
 }
@@ -15,7 +15,7 @@ function setup(){
 function draw(){
   background(20, 20, 20, 15);
   for(var i = 0; i < bars.length; i++){
-    bars[i].run();
+    bars[i].render();
   }
 
 
@@ -25,11 +25,10 @@ function draw(){
 //array of bars
 function loadBars(numBars) {
   for(var i = 0; i < numBars; i++){
-
-    var loc = createVector(-(windowWidth-width)/2, -(windowWidth-width)/2, 0);
-    var rad = random(20, 40);
-    var col = color(random(255), random(255), random(255));
-    bars.push(new Colorbar(loc, rad, col));
+    var loc = createVector(i*15,  100);
+	//createVector(-(windowWidth-width)/2, -(windowWidth-width)/2, 0);
+    var clr = color(random(255), random(255), random(255));
+    bars.push(new Colorbar(loc, clr));
   }
 }
 
