@@ -2,14 +2,13 @@ var myData;
 var barHeight;
 
 function preload() {
-  myData = loadJSON("onlinePlayers.json");
-
+  myData = loadJSON("pokedex.json");
 }
 
 function setup() {
   noCanvas();
-  console.log(json)
   myBubbleSort(json);
+  myData.pokemon[3].id
 }
 
 
