@@ -1,6 +1,7 @@
 var data;
 var barHeight;
 var myBubbleSort;
+var oneAndDone = false;
 
 
 function setup() {
@@ -11,7 +12,7 @@ function setup() {
   console.log(data)
   myBubbleSort(data)
   loadJSON("pokedex.json", gotData);
-  
+
 }
 
 function draw() {
@@ -24,15 +25,18 @@ function gotData(jData) {
 }
 
 function myBubbleSort() {
-
 }
 
 function useData() {
   if(data){
-    myBubbleSort();
-    for(var i = 0; i < data.pokemon.length; i++){
-      console.log(i + '-' + data.pokemon[i].type + 'name ' + data.pokemon[i].name)
+    if(!oneAndDone){
+      myBubbleSort();
+      for(var i = 0; i < data.pokemon.length; i++){
+        console.log(i + '-' + data.pokemon[i].type + 'height' + data.pokemon[i].height)
+      }
+      oneAndDone = true;
     }
+
   }
 
 }
