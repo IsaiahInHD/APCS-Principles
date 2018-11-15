@@ -28,7 +28,12 @@ function draw() {
   }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   for(let i = balls.length - 1; i>= 0; i--){
+=======
+
+  for(let i = balls.length - 1; i >= 0; i--){
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 =======
 
   for(let i = balls.length - 1; i >= 0; i--){
@@ -43,6 +48,7 @@ function draw() {
         w = w + 5;
         if(balls.length === 0){
           n = n + 10
+<<<<<<< HEAD
 <<<<<<< HEAD
           loadBalls(n)
         }
@@ -71,6 +77,16 @@ function draw() {
 >>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 
 
+=======
+          loadBalls(n);
+        }
+      }
+    }
+
+  }
+
+
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 
 
 

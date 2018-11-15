@@ -29,19 +29,34 @@ function Ball(loc, vel, clr, acc, w, h)  {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.isColliding = function() {
            if(this.loc.x > paddle.loc.x &&
            this.loc.x < paddle.loc.x + w)
-
-
-            }
-
 =======
   }
 >>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 
 
+            }
 
+<<<<<<< HEAD
+=======
+  }
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
+=======
+  this.colliding = function() {
+    if((this.loc.x > paddle.loc.x) &&
+    (this.loc.x < paddle.loc.x + w) &&
+    (this.loc.y > paddle.loc.y) &&
+    (this.loc.y < paddle.loc.y + h)) {
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
+
+      return true;
+    }else{
+
+
+<<<<<<< HEAD
   this.colliding = function() {
     if((this.loc.x > paddle.loc.x) &&
     (this.loc.x < paddle.loc.x + w) &&
@@ -50,6 +65,11 @@ function Ball(loc, vel, clr, acc, w, h)  {
 
       return true;
     }else{
+=======
+      return false;
+
+    }
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 
 
       return false;
@@ -57,6 +77,7 @@ function Ball(loc, vel, clr, acc, w, h)  {
     }
 
 
+<<<<<<< HEAD
 
   }
 <<<<<<< HEAD
@@ -76,6 +97,21 @@ function Ball(loc, vel, clr, acc, w, h)  {
   }
 
 
+=======
+
+
+
+
+  //checkEdges() reverses speed when the ball touches an edge
+  this.checkEdges = function(){
+    if(this.loc.x < 0) this.vel.x = -this.vel.x;
+    if(this.loc.x > width) this.vel.x = -this.vel.x;
+    if(this.loc.x < 0) this.vel.y = -this.vel.y;
+    if(this.loc.y > height) this.vel.y = -this.vel.y;
+  }
+
+
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
   // render() draws the balls at a new location
   this.render = function(){
     fill(this.clr);
@@ -88,4 +124,7 @@ function Ball(loc, vel, clr, acc, w, h)  {
 
 
 }
+<<<<<<< HEAD
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
+=======
 >>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2

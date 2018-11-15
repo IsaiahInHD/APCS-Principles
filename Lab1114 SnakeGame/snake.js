@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 function Snake(loc, vel) {
   this.loc = loc;
   this.vel = vel;
@@ -22,6 +23,31 @@ function Snake(loc, vel) {
 
   
 }
+=======
+function Snake(loc, vel) {
+  this.loc = loc;
+  this.vel = vel;
+
+  this.run = function(){
+    this.update();
+    this.render();
+  }
+
+
+  this.update = function(){
+    this.loc.add(this.vel);
+    this.loc.x = constrain(this.loc.x, 0, width-w);
+    this.loc.y = constrain(this.loc.y, 0, height-w);
+  }
+
+  this.render = function() {
+    fill(0, 255, 0);
+    rect(this.loc.x, this.loc.y, w, w);
+  }
+
+  
+}
+>>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
 =======
 function Snake(loc, vel) {
   this.loc = loc;
