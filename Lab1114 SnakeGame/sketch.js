@@ -11,7 +11,7 @@ function setup() {
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
   snake = new Snake(createVector(width/2, height/2, createVector(1, 0)));
-
+  frameRate(60);
 }
 
 function draw(){
