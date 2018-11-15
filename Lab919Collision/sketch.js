@@ -6,7 +6,7 @@ function setup() {
   var cnv = createCanvas(1600,900);
   cnv.position((windowWidth-width)/2, 30);
   background(20, 20, 20);
-  loadBoids(150); // !!!!!!!! this is a function call
+  loadBoids(2000); // !!!!!!!! this is a function call
   chaser = new Ball(createVector(0, 0),
                     createVector(0, 0),
                     40,
