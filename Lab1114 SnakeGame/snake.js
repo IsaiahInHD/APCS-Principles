@@ -1,8 +1,10 @@
 
+
+
 function Snake(loc, vel) {
   this.loc = loc;
   this.vel = vel;
-
+  this.segments = [];
   this.run = function(){
     this.update();
     this.render();

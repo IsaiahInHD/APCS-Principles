@@ -4,6 +4,7 @@ var w = 20;
 var cols, rows;
 
 
+
 function setup() {
   var cnv = createCanvas(1600, 900);
   background(20, 20, 20);
