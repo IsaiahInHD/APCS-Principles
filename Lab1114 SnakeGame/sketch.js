@@ -5,7 +5,8 @@ var cols, rows;
 
 
 function setup() {
-  var cnv = createCanvas(800, 800);
+  var cnv = createCanvas(1600, 900);
+  background(20, 20, 20);
   cols = width/w;
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
@@ -25,10 +26,10 @@ function keyPressed() {
     snake.vel = createVector(0, 1);
   }
   if(keyCode === RIGHT_ARROW){
-    snake.vel = createVector(-1, 0);
+    snake.vel = createVector(1, 0);
   }
   if(keyCode === LEFT_ARROW){
-    snake.vel = createVector(1, 0);
+    snake.vel = createVector(-1, 0);
   }
 
 }
