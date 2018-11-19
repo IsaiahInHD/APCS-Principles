@@ -1,9 +1,22 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-blah
-=======
-blah
->>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
-=======
-blah
->>>>>>> f5c8349aa3a593c9ac9e8455ac930c5c0b0d98d2
+//food constructor function
+
+//what does food need to know about itself?
+
+function Food(loc, col){
+// instance variables
+  this.loc = loc;
+  this.col = col;
+  this.run = function(){
+    this.update();
+    this.render();
+  }
+}
+
+this.update = function(){
+
+}
+
+this.render = function(){
+  fill(255, 255, 255);
+  rect(30, 20, 55, 55)
+}
