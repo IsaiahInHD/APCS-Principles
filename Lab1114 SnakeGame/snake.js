@@ -29,8 +29,12 @@ function Snake(loc, vel) {
   // array of segments
 
   this.segments = function() {
-    for(var i = 0; i < this.segments; i++){
-      segments[i].length
+    for(var i = 0; i < segments.length; i++){
+      var loc = createVector(this.loc.x, this.loc.y, w, w);
+      var vel = createVector(this.loc.add(this.vel));
+      var col = color(0, 255, 0);
+      segments.push(new Segment(loc, vel, col));
+
     }
   }
 
