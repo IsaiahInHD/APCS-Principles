@@ -5,6 +5,7 @@ var segments;
 var w = 20;
 var h = 15;
 var cols, rows;
+var dots;
 
 
 //setup & initialization of canvas
@@ -17,14 +18,27 @@ function setup() {
   snake = new Snake(createVector(width/2, height/2, createVector(1, 0)));
   //food = new Food(createVector(width/3, height/3, createVector(1,0)));
   frameRate(60);
+  this.segments = [];
 }
 
 //call & execute functions
 function draw(){
   snake.run();
-  segments.run();
   //food.run();
 }
+
+//array of segments
+this.segments = function() {
+  for(var i = 0; i < segments.length; i++){
+    var loc = createVector(this.loc.x, this.loc.y, w, w);
+    var vel = createVector(this.loc.add(this.vel));
+    var col = color(0, 255, 0);
+    segments.push(new Segment(loc, vel, col));
+
+  }
+}
+
+
 
 //bind snake movement to the arrow keys
 function keyPressed() {

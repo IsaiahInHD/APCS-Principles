@@ -5,7 +5,6 @@
 function Snake(loc, vel) {
   this.loc = loc;
   this.vel = vel;
-  this.segments = [];
   this.run = function(){
     this.update();
     this.render();
@@ -25,17 +24,25 @@ function Snake(loc, vel) {
     rect(this.loc.x, this.loc.y, w, w);
   }
 
-
-  // array of segments
-
-  this.segments = function() {
-    for(var i = 0; i < segments.length; i++){
-      var loc = createVector(this.loc.x, this.loc.y, w, w);
-      var vel = createVector(this.loc.add(this.vel));
-      var col = color(0, 255, 0);
-      segments.push(new Segment(loc, vel, col));
-
+function checkCollision() {
+  for(var z = dots; z > 0; z--) {
+    if ((z > 4) && (x[0] == x[z]) && (y[0] == y[z])){
+      inGame = false;
     }
   }
+
+  if (y[0] >= C_HEIGHT) {
+    inGame = false;
+  }
+
+  if(y[0] < 0) {
+    inGame = false;
+  }
+
+  if(x[0] >= C_WIDTH) {
+    inGame = false;
+  }
+
+}
 
 }
