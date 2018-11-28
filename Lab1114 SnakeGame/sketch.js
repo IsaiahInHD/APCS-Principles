@@ -1,6 +1,6 @@
 //global variables
 var snake;
-var food;
+var apple;
 var segments;
 var w = 20;
 var h = 15;
@@ -16,29 +16,16 @@ function setup() {
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
   snake = new Snake(createVector(width/2, height/2, createVector(1, 0)));
-  //food = new Food(createVector(width/3, height/3, createVector(1,0)));
+  apple = new Apple(createVector(width/3, height/3, createVector(1,0)));
   frameRate(60);
-  this.segments = [];
 }
 
 //call & execute functions
 function draw(){
   snake.run();
-  //food.run();
+  apple.run();
+
 }
-
-//array of segments
-this.segments = function() {
-  for(var i = 0; i < segments.length; i++){
-    var loc = createVector(this.loc.x, this.loc.y, w, w);
-    var vel = createVector(this.loc.add(this.vel));
-    var col = color(0, 255, 0);
-    segments.push(new Segment(loc, vel, col));
-
-  }
-}
-
-
 
 //bind snake movement to the arrow keys
 function keyPressed() {
