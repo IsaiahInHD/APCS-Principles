@@ -1,6 +1,5 @@
 //global variables
 var snake;
-var apple;
 var segments;
 var w = 20;
 var h = 15;
@@ -16,7 +15,8 @@ function setup() {
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
   snake = new Snake(createVector(width/2, height/2, createVector(1, 0)));
-  apple = new Apple(createVector(width/3, height/3, createVector(1,0)));
+  apple = new Apple();
+  apple.randomize();
   frameRate(60);
 }
 
