@@ -4,7 +4,7 @@ var segments;
 var w = 20;
 var h = 15;
 var cols, rows;
-var dots;
+
 
 
 //setup & initialization of canvas

@@ -8,13 +8,13 @@ function Snake(loc, vel) {
   this.segments = [];
 
   this.setVel = function(vel) {
-    if(this.vel.y > 0 && vel.y , 0){
+    if(this.vel.y > 0 && this.vel.y < 0){
 
     }
-    else if(this.vel.y < 0 && vel.y > 0){
+    else if(this.vel.y < 0 && this.vel.y > 0){
 
     }
-    else if(this.vel.x > 0 && vel.x < 0){
+    else if(this.vel.x > 0 && this.vel.x < 0){
 
     }
     else {
@@ -28,6 +28,17 @@ function Snake(loc, vel) {
   this.run = function(){
     this.update();
     this.render();
+    this.checkEdges();
+  }
+
+  this.checkEdges = function() {
+    if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
+      console.log("APPLE");
+      this.length += 1;
+      apple.randomize();
+
+    }
+
   }
 
 //add acceleration to velocity & detect when the snake hits a wall
@@ -57,7 +68,7 @@ function Snake(loc, vel) {
 
   this.setVel(vel);
   this.render();
-  
+
 
 function checkCollision() {
   for(var i = 0; i < array.length; i++) {
