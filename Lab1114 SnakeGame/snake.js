@@ -41,6 +41,15 @@ function Snake(loc, vel) {
 
   }
 
+  this.segments = function() {
+    for(var i = 0; i < segments.length; i++) {
+      let loc = createVector(this.loc.x, this.loc.y, w, w);
+      let vel = createVector(this.loc.add(this.vel));
+      let col = color(0, 255, 0);
+      segments.push(new Segment(loc, vel, col));
+    }
+  }
+
 //add acceleration to velocity & detect when the snake hits a wall
 //maybe make it so that it starts a new round when it does so
   this.update = function(){

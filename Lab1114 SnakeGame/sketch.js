@@ -9,12 +9,12 @@ var cols, rows;
 
 //setup & initialization of canvas
 function setup() {
-  var cnv = createCanvas(1600, 900);
+  let cnv = createCanvas(1600, 900);
   background(20, 20, 20);
   cols = width/w;
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
-  snake = new Snake(createVector(width/2, height/2, createVector(1, 0)));
+  snake = new Snake(createVector(width/2, height/2), createVector(1, 0));
   apple = new Apple();
   apple.randomize();
   frameRate(60);
