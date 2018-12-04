@@ -2,15 +2,16 @@
 
 // what does a snake need to know about
 //itself?
-function Snake(loc, vel) {
+function Snake(loc, vel, apple) {
   this.loc = loc;
   this.vel = vel;
+  this.apple = apple;
   this.segments = [];
 
   this.setVel = function(vel) {
     if(this.vel.y > 0 && this.vel.y < 0){
 
-    }
+   }
     else if(this.vel.y < 0 && this.vel.y > 0){
 
     }
@@ -19,7 +20,7 @@ function Snake(loc, vel) {
     }
     else {
       this.vel = vel;
-      console.log(vel);
+      //console.log(vel);
     }
 
   }
@@ -31,62 +32,99 @@ function Snake(loc, vel) {
   }
 
   this.checkEdges = function() {
-    if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
-      var newSegment = createVector(this.loc.x, this.loc.y);
-      // insert new segment at 0th indx of segments array
-      console.log("APPLE");
-      this.length += 1;
-      apple.randomize();
+    //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
+    //var newSegment = createVector(this.loc.x, this.loc.y);
+    // insert new segment at 0th indx of segments array
+    //console.log("APPLE");
+    this.length += 1;
+
+    let count = this.segments.length;
+    for(let i =0; i < count; i++) {
+      let seg = this.segments[i];
+      if(apple.loc.x == seg.x && apple.loc.y == seg.y) {
+        //console.log("body");
+        apple.randomize();
+        paused = true;
+
+      }
 
     }
 
   }
 
 
-//add acceleration to velocity & detect when the snake hits a wall
-//maybe make it so that it starts a new round when it does so
+
+
+
+
+  //add acceleration to velocity & detect when the snake hits a wall
+  //maybe make it so that it starts a new round when it does so
   this.update = function(){
     var headLoc = createVector(this.loc.x, this.loc.y);
 
-      for(var i = 0; i < this.segments.length; i++) {
-        let loc = createVector(this.loc.x, this.loc.y, w, w);
-        let vel = createVector(this.loc.add(this.vel));
-        let col = color(0, 255, 0);
-      }
+    for(var i = 0; i < this.segments.length; i++) {
+      let loc = createVector(this.loc.x, this.loc.y, w, w);
+      let vel = createVector(this.loc.add(this.vel));
+      let col = color(0, 255, 0);
+    }
 
 
-    //this.segments.push(headLoc);
-    //if(this.segments.length > this.length){
-      //let remove = this.segments.shift();
-      //fill(0, 0, 0);
-      //rect(remove.x, remove.y, w, w);
-    //}
+
+
+    //defining the shape of the snake, add an array of segments
+    this.render = function() {
+      fill(0, 255, 0);
+      rect(this.loc.x, this.loc.y, w, w);
+
+    }
+
+
+
+
+
+    this.segments.push(headLoc);
+    if(this.segments.length > this.length){
+    let remove = this.segments.shift();
+    fill(0, 0, 0);
+    rect(remove.x, remove.y, w, w);
+  }
     //console.log(this.segments);
     this.loc.add(this.vel);
 
 
     this.loc.x = constrain(this.loc.x, 0, width-w);
     this.loc.y = constrain(this.loc.y, 0, height-w);
-  }
 
-//defining the shape of the snake, add an array of segments
-  this.render = function() {
-    fill(0, 255, 0);
-    rect(this.loc.x, this.loc.y, w, w);
+    //this.setVel(vel);
 
   }
 
-  this.setVel(vel);
-  this.render();
 
 
-function checkCollision() {
-  for(var i = 0; i < array.length; i++) {
-    if(array[i].x === x && array[i].y === y)
-    return true;
+
+
+
+
+
+
+
+  function checkCollision() {
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].x === x && array[i].y === y)
+      return true;
+    }
+    return false;
+
+
   }
-  return false;
-}
 
+
+  function checkCollision() {
+    for(var i = 0; i < array.length; i++) {
+      if(array[i].x === x && array[i].y === y)
+      return true;
+    }
+    return false;
+  }
 
 }
