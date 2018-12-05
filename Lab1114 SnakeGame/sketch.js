@@ -9,7 +9,7 @@ var cols, rows;
 
 //setup & initialization of canvas
 function setup() {
-  let cnv = createCanvas(1600, 900);
+  let cnv = createCanvas(800, 600);
   background(20, 20, 20);
   cols = width/w;
   rows = height/w;
@@ -29,16 +29,16 @@ function draw(){
 //bind snake movement to the arrow keys
 function keyPressed() {
   if(keyCode === UP_ARROW){
-    snake.vel = createVector(0, -1*w);
+    snake.vel = createVector(0, -1);
   }
   if(keyCode === DOWN_ARROW){
-    snake.vel = createVector(0, 1*w);
+    snake.vel = createVector(0, 1);
   }
   if(keyCode === RIGHT_ARROW){
-    snake.vel = createVector(1*w, 0);
+    snake.vel = createVector(1, 0);
   }
   if(keyCode === LEFT_ARROW){
-    snake.vel = createVector(-1*w, 0);
+    snake.vel = createVector(-1, 0);
   }
 
 }

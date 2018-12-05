@@ -64,7 +64,6 @@ function Snake(loc, vel, apple) {
 
     for(var i = 0; i < this.segments.length; i++) {
       let loc = createVector(this.loc.x, this.loc.y, w, w);
-      let vel = createVector(this.loc.add(this.vel));
       let col = color(0, 255, 0);
     }
 
@@ -118,13 +117,5 @@ function Snake(loc, vel, apple) {
 
   }
 
-
-  function checkCollision() {
-    for(var i = 0; i < array.length; i++) {
-      if(array[i].x === x && array[i].y === y)
-      return true;
-    }
-    return false;
-  }
 
 }
