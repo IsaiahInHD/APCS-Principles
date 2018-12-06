@@ -34,23 +34,22 @@ function Snake(loc, vel, apple) {
 
 
   this.checkEdges = function() {
-    //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
-    //var newSegment = createVector(this.loc.x, this.loc.y);
+    if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
     // insert new segment at 0th indx of segments array
-    //console.log("APPLE");
+    console.log("APPLE");
     this.length += 1;
+    apple.randomize();
 
     let count = this.segments.length;
     for(let i =0; i < count; i++) {
       let seg = this.segments[i];
-      if(apple.loc.x == seg.x && apple.loc.y == seg.y) {
-        //console.log("body");
-        apple.randomize();
+      if(this.loc.x == seg.x && this.loc.y == seg.y) {
+        console.log("body");
         paused = true;
 
-      }
+  }
 
-    }
+}
 
     //console.log(this.segments);
     this.loc.add(this.vel);
@@ -62,6 +61,8 @@ function Snake(loc, vel, apple) {
 
 
   }
+
+}
 
 
 
@@ -105,11 +106,6 @@ function Snake(loc, vel, apple) {
 
 
   }
-
-
-
-
-
 
 
 
