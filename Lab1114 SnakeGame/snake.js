@@ -11,7 +11,7 @@ function Snake(loc, vel, apple) {
   this.setVel = function(vel) {
     if(this.vel.y > 0 && this.vel.y < 0){
 
-   }
+    }
     else if(this.vel.y < 0 && this.vel.y > 0){
 
     }
@@ -30,6 +30,8 @@ function Snake(loc, vel, apple) {
     this.render();
     this.checkEdges();
   }
+
+
 
   this.checkEdges = function() {
     //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
@@ -50,6 +52,15 @@ function Snake(loc, vel, apple) {
 
     }
 
+    //console.log(this.segments);
+    this.loc.add(this.vel);
+    this.loc.x = constrain(this.loc.x, 0, width-w);
+    this.loc.y = constrain(this.loc.y, 0, height-w);
+
+    //this.setVel(vel);
+
+
+
   }
 
 
@@ -68,40 +79,18 @@ function Snake(loc, vel, apple) {
     }
 
 
-
-
-    //defining the shape of the snake, add an array of segments
-    this.render = function() {
-      fill(0, 255, 0);
-      rect(this.loc.x, this.loc.y, w, w);
-
-    }
-
-
-
-
-
-    this.segments.push(headLoc);
-    if(this.segments.length > this.length){
-    let remove = this.segments.shift();
-    fill(0, 0, 0);
-    rect(remove.x, remove.y, w, w);
-  }
-    //console.log(this.segments);
-    this.loc.add(this.vel);
-
-
-    this.loc.x = constrain(this.loc.x, 0, width-w);
-    this.loc.y = constrain(this.loc.y, 0, height-w);
-
-    //this.setVel(vel);
-
   }
 
 
 
 
+  this.render = function() {
+    this.segments.push(loc);
+    fill(0, 255, 0);
+    rect(this.loc.x, this.loc.y, w, w);
 
+
+  }
 
 
 
@@ -109,13 +98,19 @@ function Snake(loc, vel, apple) {
 
   function checkCollision() {
     for(var i = 0; i < array.length; i++) {
-      if(array[i].x === x && array[i].y === y)
+      if(array[i].x - x && array[i].y - y)
       return true;
     }
     return false;
 
 
   }
+
+
+
+
+
+
 
 
 }
