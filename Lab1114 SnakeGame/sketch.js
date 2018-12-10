@@ -24,8 +24,22 @@ function draw(){
   background(20, 20, 20);
   snake.run();
   apple.run();
+  //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y){
+    console.log("APPLE");
+    this.length += 1;
 
-}
+  let count = this.segments.length;
+  for(let i =0; i < count; i++) {
+    let seg = this.segments[i];
+    if(this.loc.x == seg.x && this.loc.y == seg.y){
+      console.log("body");
+      paused = true;
+    }
+  }
+
+  }
+
+//}
 
 //bind snake movement to the arrow keys
 function keyPressed() {

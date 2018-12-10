@@ -28,46 +28,7 @@ function Snake(loc, vel, apple) {
   this.run = function(){
     this.update();
     this.render();
-    this.checkEdges();
   }
-
-
-
-  this.checkEdges = function() {
-    if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y) {
-    // insert new segment at 0th indx of segments array
-    console.log("APPLE");
-    this.length += 1;
-    apple.randomize();
-
-    let count = this.segments.length;
-    for(let i =0; i < count; i++) {
-      let seg = this.segments[i];
-      if(this.loc.x == seg.x && this.loc.y == seg.y) {
-        console.log("body");
-        paused = true;
-
-  }
-
-}
-
-    //console.log(this.segments);
-    this.loc.add(this.vel);
-    this.loc.x = constrain(this.loc.x, 0, width-w);
-    this.loc.y = constrain(this.loc.y, 0, height-w);
-
-    //this.setVel(vel);
-
-
-
-  }
-
-}
-
-
-
-
-
 
   //add acceleration to velocity & detect when the snake hits a wall
   //maybe make it so that it starts a new round when it does so
@@ -78,7 +39,11 @@ function Snake(loc, vel, apple) {
       let loc = createVector(this.loc.x, this.loc.y, w, w);
       let col = color(0, 255, 0);
     }
-
+    //console.log(this.segments);
+    this.loc.add(this.vel);
+    this.loc.x = constrain(this.loc.x, 0, width-w);
+    this.loc.y = constrain(this.loc.y, 0, height-w);
+    apple.randomize();
 
   }
 
