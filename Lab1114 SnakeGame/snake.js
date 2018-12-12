@@ -43,7 +43,7 @@ function Snake(loc, vel, apple) {
     this.loc.add(this.vel);
     this.loc.x = constrain(this.loc.x, 0, width-w);
     this.loc.y = constrain(this.loc.y, 0, height-w);
-    apple.randomize();
+    //apple.randomize();
 
   }
 
@@ -58,7 +58,18 @@ function Snake(loc, vel, apple) {
 
   }
 
+  this.tangled = function() {
+    let count = this.segments.length;
+    for(let i =0; i < count; i++) {
+      let seg = this.segments[i];
+      if(this.loc.x == seg.x && this.loc.y == seg.y){
+        console.log("body");
+        return true;
+      }
+    }
 
+    return false;
+  }
 
 
 

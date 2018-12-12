@@ -4,6 +4,7 @@ var segments;
 var w = 20;
 var h = 15;
 var cols, rows;
+var paused;
 
 
 
@@ -15,7 +16,7 @@ function setup() {
   rows = height/w;
   cnv.position((windowWidth-width)/2, 30);
   apple = new Apple();
-  snake = new Snake(createVector(width/2, height/2), createVector(1, 0), apple);
+  snake = new Snake(createVector(width/2, height/2), createVector(w, 0), apple);
   frameRate(10);
 }
 
@@ -27,18 +28,18 @@ function draw(){
   //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y){
     console.log("APPLE");
     this.length += 1;
-
-  let count = this.segments.length;
-  for(let i =0; i < count; i++) {
-    let seg = this.segments[i];
-    if(this.loc.x == seg.x && this.loc.y == seg.y){
-      console.log("body");
-      paused = true;
-    }
+  if(snake.tangled()){
+    GameOver();
   }
 
   }
 
+
+
+function GameOver() {
+  console.log("GameOver");
+
+}
 //}
 
 //bind snake movement to the arrow keys
