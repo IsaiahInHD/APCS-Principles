@@ -73,13 +73,19 @@ function Snake(loc, vel, apple) {
 
 
 
-  function checkCollision() {
+  this.checkCollision = function() {
     for(var i = 0; i < array.length; i++) {
       if(array[i].x - x && array[i].y - y)
-      return true;
+      GameOver();
     }
     return false;
 
+
+  }
+
+  this.grow = function() {
+  var newLoc = createVector(this.segments[this.segments.length-1].x + w, this.segments[this.segments.length-1].y)
+  this.segments.push(newloc);
 
   }
 

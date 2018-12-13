@@ -5,6 +5,7 @@ var w = 20;
 var h = 15;
 var cols, rows;
 var paused;
+var apple;
 
 
 
@@ -25,14 +26,24 @@ function draw(){
   background(20, 20, 20);
   snake.run();
   apple.run();
-  //if(this.loc.x == apple.loc.x && this.loc.y == apple.loc.y){
-    console.log("APPLE");
-    this.length += 1;
-  if(snake.tangled()){
-    GameOver();
-  }
+  //if(snake.loc.x == apple.loc.x && snake.loc.y == apple.loc.y){
 
-  }
+if(snake.tangled()){
+  GameOver();
+}
+
+
+//check if snake touches food
+console.log(snake.loc, apple.loc);
+if(snake.loc.dist(apple.loc) == 0) {
+  //grow the Snake
+  //add to score
+  //move the food
+  snake.grow();
+
+}
+
+}
 
 
 
