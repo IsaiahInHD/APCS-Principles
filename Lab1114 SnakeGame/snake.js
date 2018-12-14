@@ -1,3 +1,4 @@
+
 //snake constructor function
 
 // what does a snake need to know about
@@ -7,6 +8,10 @@ function Snake(loc, vel, apple) {
   this.vel = vel;
   this.apple = apple;
   this.segments = [];
+  var head = createVector(loc.x, loc.y);
+  this.segments.push(head);
+
+
 
   this.setVel = function(vel) {
     if(this.vel.y > 0 && this.vel.y < 0){
@@ -35,12 +40,17 @@ function Snake(loc, vel, apple) {
   this.update = function(){
     var headLoc = createVector(this.loc.x, this.loc.y);
 
-    for(var i = 0; i < this.segments.length; i++) {
-      let loc = createVector(this.loc.x, this.loc.y, w, w);
-      let col = color(0, 255, 0);
+    for(var i = this.segments.length-1; i > 0; i--) {
+      this.segments[i].x = this.segments[i-1].x;
+      this.segments[i].y = this.segments[i-1].y;
+
     }
+
+
     //console.log(this.segments);
     this.loc.add(this.vel);
+    this.segments[0].x = this.loc.x;
+    this.segments[0].y = this.loc.y;
     this.loc.x = constrain(this.loc.x, 0, width-w);
     this.loc.y = constrain(this.loc.y, 0, height-w);
     //apple.randomize();
@@ -51,10 +61,12 @@ function Snake(loc, vel, apple) {
 
 
   this.render = function() {
-    this.segments.push(loc);
     fill(0, 255, 0);
-    rect(this.loc.x, this.loc.y, w, w);
+    //rect(this.loc.x, this.loc.y, w, w);
 
+    for(var i = 0; i < this.segments.length; i++) {
+      rect(this.segments[i].x, this.segments[i].y, w, w);
+    }
 
   }
 
@@ -84,7 +96,7 @@ function Snake(loc, vel, apple) {
   }
 
   this.grow = function() {
-  var newLoc = createVector(this.segments[this.segments.length-1].x + w, this.segments[this.segments.length-1].y)
+  var newLoc = createVector(this.segments[this.segments.length-1].x + w, this.segments[this.segments.length-1].y);
   this.segments.push(newloc);
 
   }
