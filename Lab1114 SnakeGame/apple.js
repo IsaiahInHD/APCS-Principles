@@ -1,4 +1,4 @@
-//food constructor function
+  //food constructor function
 
 //what does food need to know about itself?
 
