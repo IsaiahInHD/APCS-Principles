@@ -72,7 +72,7 @@ function Snake(loc, vel, apple) {
 
   this.tangled = function() {
     let count = this.segments.length;
-    for(let i =0; i < count; i++) {
+    for(let i = 0; i < count; i++) {
       let seg = this.segments[i];
       if(this.loc.x == seg.x && this.loc.y == seg.y){
         console.log("body");
@@ -97,7 +97,7 @@ function Snake(loc, vel, apple) {
 
   this.grow = function() {
   var newLoc = createVector(this.segments[this.segments.length-1].x + w, this.segments[this.segments.length-1].y);
-  this.segments.push(newloc);
+  this.segments.push(newLoc);
 
   }
 

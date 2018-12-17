@@ -6,6 +6,8 @@ var h = 15;
 var cols, rows;
 var paused;
 var apple;
+var newLoc;
+
 
 
 
@@ -40,6 +42,7 @@ if(snake.loc.dist(apple.loc) == 0) {
   //add to score
   //move the food
   snake.grow();
+  apple.randomize();
 
 
 }
