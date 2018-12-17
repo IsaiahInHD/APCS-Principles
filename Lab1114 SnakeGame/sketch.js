@@ -41,6 +41,7 @@ if(snake.loc.dist(apple.loc) == 0) {
   //move the food
   snake.grow();
 
+
 }
 
 }
